@@ -18,12 +18,14 @@
 //***REMOVED***
 //unsigned long time2;
 
+***REMOVED*** // 5
+
 ***REMOVED******REMOVED***
     
   ***REMOVED***
 
-    pinMode(5, OUTPUT);   // LED EYE
-    digitalWrite(5, LOW); //Active Low
+    pinMode(LEDEYE, OUTPUT);   // LED EYE
+    digitalWrite(LEDEYE, LOW); //Active Low
   ***REMOVED***
     
     servoInitialSet();  //PLEN Servo init
@@ -79,8 +81,8 @@
 ***REMOVED***
 
 void plenBlink()***REMOVED***
-    digitalWrite(5, HIGH);
+    digitalWrite(LEDEYE, HIGH);
     delay(100);
-    digitalWrite(5, LOW);
+    digitalWrite(LEDEYE, LOW);
     delay(100);
 ***REMOVED***
