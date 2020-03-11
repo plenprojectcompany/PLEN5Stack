@@ -18,12 +18,13 @@ sub
 
 #define SERVO_NUM 0x08
 #define ROM_ADR1 0x56
+#define SERVO_NUM_USED 8//plenbit = 7, plen2 max servo = 24
 
 bool initController  = false;
 //byte error;
 
-int servoSetInit[8] = {1000, 630, 300, 600, 240, 600, 1000, 720};
-float servoAngle[8] = {1000, 630, 300, 600, 240, 600, 1000, 720};
+int servoSetInit[SERVO_NUM_USED] = {1000, 630, 300, 600, 240, 600, 1000, 720};
+float servoAngle[SERVO_NUM_USED] = {1000, 630, 300, 600, 240, 600, 1000, 720};
 //int SERVO_SET_INIT[8] = {1000, 900, 300, 900, 800, 900, 1500, 900};
 
 void servoWrite(uint8_t num, float degrees);
@@ -73,23 +74,23 @@ void initPCA9865() {
 }
 
 void servoInitialSet() {
-    for (uint8_t n = 0; n < 8; n++ ){
+    for (uint8_t n = 0; n < SERVO_NUM_USED; n++ ){
         servoWrite(n, servoSetInit[n] / 10);
     }
 }
 
 void setAngle(int16_t angle[], uint16_t msec) {
-    float steps[8] = {};
-    uint16_t motionSpeed = 10;//6; //C++ speed is so speedy.
+    float steps[SERVO_NUM_USED] = {};
+    uint16_t motionSpeed = 10;//6; //"C++ speed" is so speedy.
     msec = msec / motionSpeed;//default 10; Speed Adj
-    for (uint8_t val = 0; val < 8; val++) {
+    for (uint8_t val = 0; val < SERVO_NUM_USED; val++) {
         float target = (servoSetInit[val] - angle[val]);
         if (target != servoAngle[val]) {  // Target != Present
             steps[val] = (target - servoAngle[val]) / (msec);
         }
     }
     for (uint16_t i = 0; i <= msec; i++) {
-        for (uint8_t val = 0; val < 8; val++) {
+        for (uint8_t val = 0; val < SERVO_NUM_USED; val++) {
             servoAngle[val] += steps[val];
             //Serial.println(servoAngle[val]);
             servoWrite(val, (servoAngle[val] / 10));
@@ -113,7 +114,7 @@ String reep(uint16_t eepAdr, uint8_t num) {
 }
 
 void motion(uint16_t fileName) {
-    int16_t angle[8]= {};
+    int16_t angle[SERVO_NUM_USED]= {};
     const uint8_t listLen = 43;
     uint16_t readAdr = 0x32 + 860 * fileName;
     String str="";
@@ -137,7 +138,7 @@ void motion(uint16_t fileName) {
         uint16_t time = strtol(str.c_str(), NULL, 16);
         listNum += 4;// time
         //Serial.print(",time="); Serial.println(time);
-        for (uint8_t val = 0; val < 8; val++){//plen2 max servo = 24, plenbit = 7
+        for (uint8_t val = 0; val < SERVO_NUM_USED; val++){//plen2 max servo = 24, plenbit = 7
             str = mFile.substring(listNum, listNum+4);
             int16_t numHex = strtol(str.c_str(), NULL, 16);
             if (numHex >= 0x7fff) {

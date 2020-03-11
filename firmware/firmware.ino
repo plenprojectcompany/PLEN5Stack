@@ -18,12 +18,14 @@
 //unsigned long time1;
 //unsigned long time2;
 
+#define LEDEYE 26 // 5
+
 void setup(){
     
     M5.begin();
 
-    pinMode(5, OUTPUT);   // LED EYE
-    digitalWrite(5, LOW); //Active Low
+    pinMode(LEDEYE, OUTPUT);   // LED EYE
+    digitalWrite(LEDEYE, LOW); //Active Low
     Wire.begin(SDA, SCL);
     
     servoInitialSet();  //PLEN Servo init
@@ -79,8 +81,8 @@ void loop(){
 }
 
 void plenBlink(){
-    digitalWrite(5, HIGH);
+    digitalWrite(LEDEYE, HIGH);
     delay(100);
-    digitalWrite(5, LOW);
+    digitalWrite(LEDEYE, LOW);
     delay(100);
 }
