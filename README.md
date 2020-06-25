@@ -15,14 +15,12 @@ PLEN:bit is PLEN5Stack brothers.
 PLEN:bit is a small humanoid robot with movable arms and legs. Anyone can easily use PLEN:bit through programing and onboard sensors.
 
 Please refer to this page about PLEN:bit
-https://plen.jp/wp/plenbit-assembly-kit/
-
+https://plen.jp/wp/plenbit/
 
 ## Other guides
 
 Programming guide here
-https://plen.jp/wp/plenbit/
-
+https://plen.jp/wp/plen5stack/
 
 ## PLEN:bit & PLEN5Stack campaign
 
