@@ -12,24 +12,19 @@
 
 ***REMOVED***
 ***REMOVED***
-
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-
 ***REMOVED***
-
+***REMOVED***
 //***REMOVED***
 
 ***REMOVED***
-
-***REMOVED***
-***REMOVED***
-***REMOVED***
-
 ***REMOVED***
 ***REMOVED***
 
+***REMOVED***
+***REMOVED***
 ***REMOVED***
 ***REMOVED***  //PLEN Servo init
 

@@ -9,7 +9,9 @@
 ***REMOVED***
 #ifndef PLEN5STACK_h
 #define PLEN5STACK_h
-***REMOVED***
+//***REMOVED***
+#include <Arduino.h>
+#include <Wire.h>
 
 ***REMOVED*** i2c list memo
 main
@@ -24,7 +26,6 @@ sub
 
 //***REMOVED***
 //***REMOVED***
-
 #define SERVO_NUM 0x08
 #define ROM_ADR1 0x56
 #define SERVO_NUM_USED 8//plenbit = 8, plen2 max servo = 24
@@ -32,20 +33,21 @@ sub
 class PLEN5Stack
 ***REMOVED***
     public:
-        PLEN5Stack();
-        bool initController  = false;
-        //byte error;
         int servoSetInit[SERVO_NUM_USED] = ***REMOVED***1000, 630, 300, 600, 240, 600, 1000, 720***REMOVED***;
-        float servoAngle[SERVO_NUM_USED] = ***REMOVED***1000, 630, 300, 600, 240, 600, 1000, 720***REMOVED***;
-        //int SERVO_SET_INIT[8] = ***REMOVED***1000, 900, 300, 900, 800, 900, 1500, 900***REMOVED***;
-
+        
+        PLEN5Stack();
         void servoWrite(uint8_t num, float degrees);
-        void write8(uint8_t addr, uint8_t cmd);
         void initPCA9865();
         void servoInitialSet();
         void setAngle(int16_t angle[], uint16_t msec);
         String reep(uint16_t eepAdr, uint8_t num);
         void motion(uint16_t fileName);
+    private:
+        float servoAngle[SERVO_NUM_USED] = ***REMOVED***1000, 630, 300, 600, 240, 600, 1000, 720***REMOVED***;
+        //int SERVO_SET_INIT[8] = ***REMOVED***1000, 900, 300, 900, 800, 900, 1500, 900***REMOVED***;
+        bool initController  = false;
+        //byte error;
+        void write8(uint8_t addr, uint8_t cmd);
 ***REMOVED***;
 
 #endif

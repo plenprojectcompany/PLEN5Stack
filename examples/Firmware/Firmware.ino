@@ -11,12 +11,9 @@
 
 ***REMOVED***
 ***REMOVED***
-
 ***REMOVED***
 ***REMOVED***
-
 ***REMOVED***
-
 //***REMOVED***
 
 ***REMOVED***
@@ -27,7 +24,6 @@
 ***REMOVED***
   pinMode(LEDEYE, OUTPUT);   // LED EYE
   digitalWrite(LEDEYE, LOW); // Active Low
-
 ***REMOVED***
 ***REMOVED***  // PLEN Servo init
 

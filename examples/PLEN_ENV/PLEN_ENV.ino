@@ -22,12 +22,11 @@
 ***REMOVED***
 
 ***REMOVED***
+***REMOVED***
 DHT12 dht12; //Preset scale CELSIUS and ID 0x5c.
 Adafruit_BMP280 bme;
 
 unsigned long time2;
-
-***REMOVED***
 
 ***REMOVED***
 ***REMOVED***
@@ -50,8 +49,7 @@ unsigned long time2;
 ***REMOVED***
 
 ***REMOVED***  //PLEN Servo init
-***REMOVED***
-
+  //Serial.begin(115200);
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -84,8 +82,6 @@ unsigned long time2;
 ***REMOVED***
   ***REMOVED***
 ***REMOVED***// if button
-
-
 
   if(millis()-time2 >= 1000)
   ***REMOVED***
