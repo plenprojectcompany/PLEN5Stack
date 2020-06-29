@@ -34,4 +34,8 @@ https://plen.jp/wp/plenbit/
 MIT
 
 ## Copyright
+<<<<<<< HEAD
 - [PLEN Project Company Inc](https://plen.jp/)
+=======
+- [PLEN Project Company Inc](https://plen.jp/)
+>>>>>>> a2e322d071493f7974fbc3013ac976debc0693e9
