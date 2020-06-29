@@ -11,12 +11,9 @@
 
 #define SCL 22
 #define SDA 21
-
 #define POWERSWITCH 5
 #define LEDEYE 26
-
 PLEN5Stack plen5stack;
-
 //unsigned long time1;
 
 void setup()
@@ -27,7 +24,6 @@ void setup()
   digitalWrite(POWERSWITCH, LOW);
   pinMode(LEDEYE, OUTPUT);   // LED EYE
   digitalWrite(LEDEYE, LOW); // Active Low
-
   Wire.begin(SDA, SCL);
   plen5stack.servoInitialSet();  // PLEN Servo init
 

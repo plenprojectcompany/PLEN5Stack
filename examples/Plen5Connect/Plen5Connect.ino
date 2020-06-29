@@ -20,14 +20,12 @@
 #define LED_COUNT 2
 
 PLEN5Stack plen5stack;
-
+Adafruit_NeoPixel strip(LED_COUNT, LEDEYE, NEO_GRB + NEO_KHZ800);
 WiFiClient client;
 const char* WIFI_SSID = "ssid";
 const char* WIFI_PASS = "pass";
 WebServer webserver(80);
 int acCount = 0;
-
-Adafruit_NeoPixel strip(LED_COUNT, LEDEYE, NEO_GRB + NEO_KHZ800);
 
 unsigned long time1;
 bool ipEnable = false;

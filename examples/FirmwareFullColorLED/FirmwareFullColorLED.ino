@@ -12,16 +12,12 @@
 
 #define SCL 22
 #define SDA 21
-
 #define POWERSWITCH 5
 #define LEDEYE 26
 #define LED_COUNT 2
-
 PLEN5Stack plen5stack;
-
-//unsigned long time1;
-
 Adafruit_NeoPixel strip(LED_COUNT, LEDEYE, NEO_GRB + NEO_KHZ800);
+//unsigned long time1;
 
 void setup()
 {
@@ -29,7 +25,6 @@ void setup()
 
   pinMode(POWERSWITCH, OUTPUT);
   digitalWrite(POWERSWITCH, LOW);
-
   Wire.begin(SDA, SCL);
   plen5stack.servoInitialSet();  //PLEN Servo init
 

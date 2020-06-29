@@ -22,12 +22,11 @@
 #define LED_COUNT 2
 
 PLEN5Stack plen5stack;
+Adafruit_NeoPixel strip(LED_COUNT, LEDEYE, NEO_GRB + NEO_KHZ800);
 DHT12 dht12; //Preset scale CELSIUS and ID 0x5c.
 Adafruit_BMP280 bme;
 
 unsigned long time2;
-
-Adafruit_NeoPixel strip(LED_COUNT, LEDEYE, NEO_GRB + NEO_KHZ800);
 
 void setup()
 {
@@ -50,8 +49,7 @@ void setup()
   }
 
   plen5stack.servoInitialSet();  //PLEN Servo init
-  Serial.begin(115200);
-
+  //Serial.begin(115200);
   digitalWrite(POWERSWITCH, HIGH);    // motor power on
   plenMenu();
 }
@@ -84,8 +82,6 @@ void loop()
     plenBlink(strip.Color(255,0,0),100);
     plenMenu();
   }// if button
-
-
 
   if(millis()-time2 >= 1000)
   {
