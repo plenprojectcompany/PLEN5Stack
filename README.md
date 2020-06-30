@@ -24,7 +24,7 @@ If you want to customize something of PLEN5Stack yourself, please check reposito
 
 ### Motion
 
-- [PLEN:bit Motion](https://github.com/plenprojectcompany/plenbit-Motion#motion-writerpy)
+- [PLEN:bit Motion](https://github.com/plenprojectcompany/plenbit-Motion)
 
 ## PLEN series robots history (evolution)
 
