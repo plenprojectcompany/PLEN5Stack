@@ -22,8 +22,8 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-***REMOVED***
-***REMOVED***
+const char* WIFI_SSID = "***REMOVED***";//"ssid";
+const char* WIFI_PASS = "***REMOVED***";//"pass";
 ***REMOVED***
 ***REMOVED***
 
