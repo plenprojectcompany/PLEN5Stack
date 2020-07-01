@@ -1,19 +1,19 @@
-***REMOVED***
+/*
     PLEN5Stack.h
-***REMOVED***
-***REMOVED***
-***REMOVED***
+    Copyright (c) 2019,
+    - hkr352 @miya - https://github.com/hkr352
+    - PLEN Project Company Inc. - https://plen.jp
     
-***REMOVED***
-***REMOVED***
-***REMOVED***
+    This software is released under the MIT License.
+    (See also : http://opensource.org/licenses/mit-license.php)
+*/
 #ifndef PLEN5STACK_h
 #define PLEN5STACK_h
-//***REMOVED***
+//#include <M5Stack.h>
 #include <Arduino.h>
 #include <Wire.h>
 
-***REMOVED*** i2c list memo
+/* i2c list memo
 main
 0x68 mpu
 0x75
@@ -22,18 +22,18 @@ sub
 0x6A CA9865
 0x70 IP5306
 0x56 eeprom
-***REMOVED***
+*/
 
-//***REMOVED***
-//***REMOVED***
+//#define SCL 22
+//#define SDA 21
 #define SERVO_NUM 0x08
 #define ROM_ADR1 0x56
 #define SERVO_NUM_USED 8//plenbit = 8, plen2 max servo = 24
 
 class PLEN5Stack
-***REMOVED***
+{
     public:
-        int servoSetInit[SERVO_NUM_USED] = ***REMOVED***1000, 630, 300, 600, 240, 600, 1000, 720***REMOVED***;
+        int servoSetInit[SERVO_NUM_USED] = {1000, 630, 300, 600, 240, 600, 1000, 720};
         
         PLEN5Stack();
         void servoWrite(uint8_t num, float degrees);
@@ -43,16 +43,16 @@ class PLEN5Stack
         String reep(uint16_t eepAdr, uint8_t num);
         void motion(uint16_t fileName);
     private:
-        float servoAngle[SERVO_NUM_USED] = ***REMOVED***1000, 630, 300, 600, 240, 600, 1000, 720***REMOVED***;
-        //int SERVO_SET_INIT[8] = ***REMOVED***1000, 900, 300, 900, 800, 900, 1500, 900***REMOVED***;
+        float servoAngle[SERVO_NUM_USED] = {1000, 630, 300, 600, 240, 600, 1000, 720};
+        //int SERVO_SET_INIT[8] = {1000, 900, 300, 900, 800, 900, 1500, 900};
         bool initController  = false;
         //byte error;
         void write8(uint8_t addr, uint8_t cmd);
-***REMOVED***;
+};
 
 #endif
 
-***REMOVED*** motion list
+/* motion list
 0: 00_Lstep
 1: 01_FStep
 2: 02_RStep
@@ -99,4 +99,4 @@ class PLEN5Stack
 43: 48_Walk_RTurn
 44: 49_Walk_Back
 45: 50_example_shaking_arm
-***REMOVED***
+*/

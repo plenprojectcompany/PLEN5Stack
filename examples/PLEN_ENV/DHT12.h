@@ -1,9 +1,9 @@
-***REMOVED***
+/*
 	DHT12.h - Library for DHT12 sensor.
 	v0.0.1 Beta
 	Created by Bobadas, July 30,2016.
 	Released into the public domain.
-***REMOVED***
+*/
 #ifndef DHT12_h 
 #define DHT12_h 
 #include "Arduino.h"
@@ -14,7 +14,7 @@
 #define FAHRENHEIT	3
 
 class DHT12
-***REMOVED***
+{
 	public:
 		DHT12(uint8_t scale=0,uint8_t id=0);
 		float readTemperature(uint8_t scale=0);
@@ -24,6 +24,6 @@ class DHT12
 		uint8_t datos[5];
 		uint8_t _id;
 		uint8_t _scale;
-***REMOVED***;
+};
 
 #endif
