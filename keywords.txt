@@ -1,4 +1,20 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
+
 PLEN5Stack	KEYWORD1
+
+#######################################
+# Methods and Functions
+#######################################
+
+begin		KEYWORD2
+servoWrite	KEYWORD2
+servoInitialSet	KEYWORD2
+setAngle	KEYWORD2
+reep		KEYWORD2
+reepByte	KEYWORD2
+motion		KEYWORD2
+savePositon	KEYWORD2
+loadPos		KEYWORD2
+resetROMPos	KEYWORD2

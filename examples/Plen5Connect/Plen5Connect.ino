@@ -37,7 +37,7 @@ void setup()
   digitalWrite(POWERSWITCH, LOW);
   
   Wire.begin(SDA, SCL);
-  plen5stack.servoInitialSet();
+  plen5stack.begin();
   
   strip.begin();
   strip.setBrightness(10);

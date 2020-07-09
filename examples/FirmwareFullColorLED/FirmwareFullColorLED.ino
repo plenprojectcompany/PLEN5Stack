@@ -26,7 +26,7 @@ void setup()
   pinMode(POWERSWITCH, OUTPUT);
   digitalWrite(POWERSWITCH, LOW);
   Wire.begin(SDA, SCL);
-  plen5stack.servoInitialSet();  //PLEN Servo init
+  plen5stack.begin();  //PLEN Servo init
 
   strip.begin();
   strip.setBrightness(10);
@@ -35,7 +35,6 @@ void setup()
   setColor(strip.Color(255,255,  0),500); // Yellow
   setColor(strip.Color(255,  0,  0),500); // Green
 
-  //Serial.begin(115200);
   digitalWrite(POWERSWITCH, HIGH);    // motor power on
   plenMenu();
 }

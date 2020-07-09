@@ -40,7 +40,7 @@ void setup()
   pinMode(POWERSWITCH, OUTPUT);
   digitalWrite(POWERSWITCH, LOW);
   Wire.begin(SDA, SCL);
-  plen5stack.servoInitialSet();  //PLEN Servo init
+  plen5stack.begin();  //PLEN Servo init
 
   strip.begin();
   strip.setBrightness(10);

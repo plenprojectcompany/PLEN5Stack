@@ -34,20 +34,25 @@ class PLEN5Stack
 {
     public:
         int servoSetInit[SERVO_NUM_USED] = {1000, 630, 300, 600, 240, 600, 1000, 720};
-        
         PLEN5Stack();
+        void begin();
         void servoWrite(uint8_t num, float degrees);
         void initPCA9865();
         void servoInitialSet();
         void setAngle(int16_t angle[], uint16_t msec);
         String reep(uint16_t eepAdr, uint8_t num);
+        byte *reepByte(uint16_t eepAdr, byte *c, uint8_t num);
         void motion(uint16_t fileName);
+        void savePositon(uint8_t servoNum, int adjustNum);
+        void loadPos();
+        void resetROMPos();
     private:
         float servoAngle[SERVO_NUM_USED] = {1000, 630, 300, 600, 240, 600, 1000, 720};
         //int SERVO_SET_INIT[8] = {1000, 900, 300, 900, 800, 900, 1500, 900};
         bool initController  = false;
         //byte error;
         void write8(uint8_t addr, uint8_t cmd);
+        void weep(uint16_t eepAdr, uint8_t num);
 };
 
 #endif

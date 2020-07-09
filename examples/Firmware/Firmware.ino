@@ -25,9 +25,8 @@ void setup()
   pinMode(LEDEYE, OUTPUT);   // LED EYE
   digitalWrite(LEDEYE, LOW); // Active Low
   Wire.begin(SDA, SCL);
-  plen5stack.servoInitialSet();  // PLEN Servo init
+  plen5stack.begin();  // PLEN Servo init
 
-  //Serial.begin(115200);
   digitalWrite(POWERSWITCH, HIGH);    // motor power on
   plenMenu();
 }

@@ -26,7 +26,7 @@ Adafruit_NeoPixel strip(LED_COUNT, LEDEYE, NEO_GRB + NEO_KHZ800);
 DHT12 dht12; //Preset scale CELSIUS and ID 0x5c.
 Adafruit_BMP280 bme;
 
-unsigned long time2;
+unsigned long time1;
 
 void setup()
 {
@@ -34,6 +34,7 @@ void setup()
   pinMode(POWERSWITCH, OUTPUT);
   digitalWrite(POWERSWITCH, LOW);
   Wire.begin(SDA, SCL);
+  plen5stack.begin();  //PLEN Servo init
   
   strip.begin();
   strip.setBrightness(10);
@@ -48,8 +49,6 @@ void setup()
     delay(100);
   }
 
-  plen5stack.servoInitialSet();  //PLEN Servo init
-  //Serial.begin(115200);
   digitalWrite(POWERSWITCH, HIGH);    // motor power on
   plenMenu();
 }
@@ -83,9 +82,9 @@ void loop()
     plenMenu();
   }// if button
 
-  if(millis()-time2 >= 1000)
+  if(millis()-time1 >= 1000)
   {
-    time2 = millis();
+    time1 = millis();
 
     float temp = dht12.readTemperature();
     float humidity = dht12.readHumidity();
@@ -103,7 +102,11 @@ void loop()
     M5.Lcd.setTextColor(WHITE, BLACK);
     M5.Lcd.printf("Humidity: %2.0f%%\r\n", humidity);
     M5.Lcd.printf("Pressure: %.2fhPa\r\n", pressure/100.0);
-      
+
+    if(temp >= 30)
+    {
+      plen5stack.motion(0x29);//patapata
+    }
   }// 1 tick timer for sensor
 }
 

@@ -11,6 +11,12 @@
 
 PLEN5Stack::PLEN5Stack(){}
 
+void PLEN5Stack::begin()
+{
+  loadPos();
+  servoInitialSet();
+}
+
 void PLEN5Stack::servoWrite(uint8_t num, float degrees)
 {
     if (initController  == false)
@@ -105,6 +111,32 @@ String PLEN5Stack::reep(uint16_t eepAdr, uint8_t num)
     return s;
 }
 
+byte *PLEN5Stack::reepByte(uint16_t eepAdr, byte *c, uint8_t num)
+{
+  Wire.beginTransmission(ROM_ADR1);
+  Wire.write(eepAdr >> 8);
+  Wire.write(eepAdr & 0xFF);
+  Wire.endTransmission();
+  Wire.requestFrom(ROM_ADR1, num);
+  int i=0;
+  while(Wire.available())
+  {
+    c[i] = Wire.read();// read 1 byte
+    i++;
+  }
+  return c;
+}
+
+void PLEN5Stack::weep(uint16_t eepAdr, uint8_t num)
+{
+  Wire.beginTransmission(ROM_ADR1);
+  Wire.write(eepAdr >> 8);
+  Wire.write(eepAdr & 0xFF);
+  Wire.write(num);
+  Wire.endTransmission();
+  delay(10);
+}
+
 void PLEN5Stack::motion(uint16_t fileName)
 {
     int16_t angle[SERVO_NUM_USED]= {};
@@ -147,4 +179,37 @@ void PLEN5Stack::motion(uint16_t fileName)
         //Serial.println("");
         setAngle(angle, time);
     }
+}
+
+void PLEN5Stack::savePositon(uint8_t servoNum, int adjustNum)
+{
+  adjustNum = servoSetInit[servoNum] + adjustNum;
+  weep(0, 1);    //write flag
+  weep(servoNum * 2 + 2, (adjustNum & 0xff00) >> 8 );
+  weep(servoNum * 2 + 3, adjustNum & 0xff);
+}
+
+void PLEN5Stack::loadPos()
+{
+  byte readBuf[17];
+  reepByte(0x00, readBuf, 1);
+  if (readBuf[0] == 0x01)
+  {
+    reepByte(0x02, readBuf, 16);
+    for (int i = 0; i < 8; i++)
+    {
+      servoSetInit[i] = (readBuf[i * 2] << 8) | (readBuf[i * 2 + 1]);
+      servoAngle[i] = servoSetInit[i];
+    }
+  }
+}
+
+void PLEN5Stack::resetROMPos()
+{
+  weep(0, 0);    //write flag reset
+  for (int n = 0; n < 8; n++)
+  {
+    weep(n * 2 + 2, (servoSetInit[n] & 0xff00) >> 8 );
+    weep(n * 2 + 3, servoSetInit[n] & 0xff);
+  }
 }
