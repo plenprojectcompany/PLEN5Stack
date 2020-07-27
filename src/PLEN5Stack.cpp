@@ -148,7 +148,7 @@ void PLEN5Stack::motion(uint16_t fileName)
         String mFile = reep(readAdr, listLen);//"";
         readAdr += mFile.length();//listLen;
 
-        Serial.print(",mf = "); Serial.println(mFile);
+        //Serial.print(",mf = "); Serial.println(mFile);
         uint16_t listNum = 0;
         str = mFile.substring(0, 3);
         if(! str.equals(">MF")) { break; }
