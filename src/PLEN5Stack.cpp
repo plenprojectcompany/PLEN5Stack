@@ -70,10 +70,16 @@ void PLEN5Stack::servoInitialSet()
     }
 }
 
+void PLEN5Stack::motionSpeed(uint16_t num){
+    if(0 <= num && num <= 20){
+        motionSpeed = num;
+    }
+}
+
 void PLEN5Stack::setAngle(int16_t angle[], uint16_t msec)
 {
     float steps[SERVO_NUM_USED] = {};
-    uint16_t motionSpeed = 10;//6; //"C++ speed" is so speedy.
+    //uint16_t motionSpeed = 10;//6; //"C++ speed" is so speedy.
     msec = msec / motionSpeed;//default 10; Speed Adj
     for (uint8_t val = 0; val < SERVO_NUM_USED; val++)
     {

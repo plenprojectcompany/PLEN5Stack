@@ -50,6 +50,7 @@ class PLEN5Stack
         float servoAngle[SERVO_NUM_USED] = {1000, 630, 300, 600, 240, 600, 1000, 720};
         //int SERVO_SET_INIT[8] = {1000, 900, 300, 900, 800, 900, 1500, 900};
         bool initController  = false;
+        uint16_t motionSpeed = 10;
         //byte error;
         void write8(uint8_t addr, uint8_t cmd);
         void weep(uint16_t eepAdr, uint8_t num);
