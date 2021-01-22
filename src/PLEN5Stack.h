@@ -46,6 +46,7 @@ class PLEN5Stack
         void savePositon(uint8_t servoNum, int adjustNum);
         void loadPos();
         void resetROMPos();
+        void changeMotionSpeed(uint16_t num);
     private:
         float servoAngle[SERVO_NUM_USED] = {1000, 630, 300, 600, 240, 600, 1000, 720};
         //int SERVO_SET_INIT[8] = {1000, 900, 300, 900, 800, 900, 1500, 900};

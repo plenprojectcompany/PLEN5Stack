@@ -70,7 +70,7 @@ void PLEN5Stack::servoInitialSet()
     }
 }
 
-void PLEN5Stack::motionSpeed(uint16_t num){
+void PLEN5Stack::changeMotionSpeed(uint16_t num){
     if(0 <= num && num <= 20){
         motionSpeed = num;
     }
